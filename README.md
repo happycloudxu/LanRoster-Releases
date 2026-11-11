@@ -92,6 +92,12 @@ Everything LanRoster learns stays on the machine that ran the scan. Nothing is u
 histories instead of sharing one database. To start over, quit the app and delete
 `data-<machine>\`. There is no account, no server component and no cloud store.
 
+## Privacy
+
+LanRoster sends nothing to the developer and has no sign-in, sync or cloud storage. What
+it does send on your behalf, and exactly what it keeps in the data folder, are set out in
+the [privacy statement](PRIVACY.md).
+
 ## What's new
 
 **0.4.0** renamed the application from LanScope Desktop to LanRoster: `LanRoster.exe`, the

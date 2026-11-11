@@ -46,19 +46,32 @@ and never asks for, any account you may have anywhere.
 
 ## What LanRoster stores on your PC
 
-All of it stays on your machine, and none of it is transmitted:
+All of it stays on your machine, and none of it is transmitted. The portable build keeps
+it in the folder that holds `LanRoster.exe`; a Microsoft Store install cannot write to its
+program folder, so it keeps the same files, under the same names, in
+`%LOCALAPPDATA%\LanRoster` (usually `C:\Users\<you>\AppData\Local\LanRoster`).
 
-| Where | What | Why |
+| File | What | Why |
 |---|---|---|
 | `data-<machine>\lanroster.db` | the devices it found — MAC, IP, vendor, hostname, model, type, OS guess, open ports, services, TTL, first and last seen — plus each scan, each sighting and each change event | that is the inventory and its history |
 | `data-<machine>\oui.csv` | the IEEE vendor-prefix table, copied out of the app on first run | so a MAC address can be turned into a manufacturer |
 | `lanroster-<machine>.log` | scan start and finish, host counts and errors | so a failure can be diagnosed in a windowed build that has no console |
 
 `<machine>` is your computer name, so several copies of the app in one folder keep separate
-histories. Nothing is written to the registry, to your user profile, or to system folders,
-and nothing is uploaded. Quit the app and delete the `data-<machine>` folder and the log
-file to erase everything it knows; uninstalling removes the executable and leaves the rest
-of your files alone.
+histories. In the portable build the data folder and the log sit beside the executable and
+nothing is written to your user profile; in the Store build they sit in
+`%LOCALAPPDATA%\LanRoster` and nothing is written to the read-only install folder. Neither
+build writes to the registry or to system folders, and nothing is uploaded.
+
+Quit the app and delete the `data-<machine>` folder and the log file to erase everything it
+knows. Uninstalling the portable build removes the executable and leaves those files alone;
+uninstalling the Store app removes the package, and Windows leaves
+`%LOCALAPPDATA%\LanRoster` in place, so delete that folder too if you want the history
+gone.
+
+A portable install and a Store install do not share history: the Store build starts with an
+empty inventory and never reads or deletes a `data-<machine>` folder left beside an old copy
+of the portable executable.
 
 Two more things happen entirely on your own machine: Windows CIM is asked for this PC's
 OS, CPU, RAM and GPU so the detail card can describe the computer you are sitting at, and
@@ -94,7 +107,7 @@ kind, so it collects nothing from anyone, including children under 13.
 ## Third-party components
 
 The executable is built with **Python**, **PySide6 / Qt** (LGPL-3.0), **scapy** and
-**PyInstaller**, all bundled inside the single file.
+**PyInstaller**, all bundled inside the app.
 
 **Npcap** is not bundled. It is an optional packet-capture driver with its own licence,
 installed separately from the download page or from <https://npcap.com>. Without it
@@ -110,15 +123,15 @@ data, not the app's, and it does not include what LanRoster found on your networ
 Because no personal data is collected or transmitted to the developer, there is nothing to
 access, correct, export or delete on the developer's side, and no request to file. To
 remove what the app has stored locally, quit it and delete the `data-<machine>` folder and
-the `lanroster-<machine>.log` file beside the executable. Devices on your network keep
+the `lanroster-<machine>.log` file, which for the portable build are beside the executable
+and for the Store build are in `%LOCALAPPDATA%\LanRoster`. Devices on your network keep
 their own logs of the probes they received; those are theirs to manage.
 
 ## Changes
 
-If a future version changes any of the above — for example by storing its state in a
-per-user folder instead of beside the executable, or by adding an optional update check —
-this statement will be updated before that version ships, and the change will be described
-in the release notes.
+If a future version changes any of the above — for example by adding an optional update
+check — this statement will be updated before that version ships, and the change will be
+described in the release notes.
 
 ## Contact
 

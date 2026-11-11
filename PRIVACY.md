@@ -1,6 +1,6 @@
 # Privacy statement — LanRoster
 
-*Last updated: 11 November 2026 — version 0.4.0*
+*Last updated: 11 November 2026 — version 0.4.1*
 
 This statement covers every way you can get LanRoster: the Windows executable published in
 this repository and, when it is published there, the Microsoft Store package.

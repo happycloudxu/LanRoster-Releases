@@ -7,7 +7,7 @@ this repository is imported, compiled or needed by the application.
 LanRoster keeps an inventory of the devices on your local network: a table of everything
 it can see on the LAN, what changed since the last scan, and a detail card for each device.
 
-**Current version: 0.4.0.** LanRoster is a native Windows desktop app — a Qt window with
+**Current version: 0.4.1.** LanRoster is a native Windows desktop app — a Qt window with
 the scan history in SQLite — shipped as a single Windows executable with Python and Qt
 inside, so there is no runtime to install.
 
@@ -29,11 +29,11 @@ Get the executable from the [latest release](../../releases/latest).
 
 | Asset | Size | What it is |
 |---|---|---|
-| **`LanRoster.exe`** — start here | 58.6 MiB (61,470,771 bytes) | **The application.** Single 64-bit Windows executable with Python and Qt inside: no installer, no Python install. Double-click it, then press **Scan now** (`Ctrl+R`) |
+| **`LanRoster.exe`** — start here | 58.6 MiB (61,470,785 bytes) | **The application.** Single 64-bit Windows executable with Python and Qt inside: no installer, no Python install. Double-click it, then press **Scan now** (`Ctrl+R`) |
 | **`npcap-1.90.exe`** — optional | 1.3 MiB (1,325,256 bytes) | **The Npcap driver installer.** Run it once for raw ARP scans, which are the only way to read a device's MAC address straight from its reply and to get TTL hints. Without it LanRoster falls back to the Windows ARP cache |
 
-Version 0.4.0 renamed the application: it was **LanScope Desktop** before this release, and
-the executable is `LanRoster.exe` now. When you replace an older build, keep a single
+Version 0.4.0 renamed the application: it was **LanScope Desktop** before 0.4.0, and the
+executable has been `LanRoster.exe` since. When you replace a pre-0.4 build, keep a single
 executable in the folder and repoint any shortcut, Send-To entry or script that still
 names the old one.
 
@@ -69,7 +69,7 @@ certutil -hashfile npcap-1.90.exe SHA256
 
 | Asset | Bytes | SHA-256 |
 |---|---|---|
-| `LanRoster.exe` (v0.4.0) | 61,470,771 | `c28c7b4359793b06be200046cd8fb74170aeab7d175073d99d4b3922cc4774db` |
+| `LanRoster.exe` (v0.4.1) | 61,470,785 | `157a229989217cb3cf1ed3ac190ea17402bc68f9a9cc35a9c6dee8b8dda1db26` |
 | `npcap-1.90.exe` | 1,325,256 | `682b57e1c05ef375931975c9d6ded40888f4bfdf9f4b11571e654f962f1199b6` |
 
 `npcap-1.90.exe` is Npcap's own installer, republished here unmodified so the download is
@@ -99,6 +99,12 @@ it does send on your behalf, and exactly what it keeps in the data folder, are s
 the [privacy statement](PRIVACY.md).
 
 ## What's new
+
+**0.4.1** is the Microsoft Store packaging release. The portable executable is unchanged:
+the same window, the same scanning, and the same `data-<machine>\` folder beside it. A
+Store build keeps its database, OUI cache and log in `%LOCALAPPDATA%\LanRoster` instead,
+because the packaged install folder is read-only; the [privacy statement](PRIVACY.md)
+covers both locations. The [release notes](../../releases/latest) have the full list.
 
 **0.4.0** renamed the application from LanScope Desktop to LanRoster: `LanRoster.exe`, the
 `LANROSTER_*` environment variables, the `lanroster.db` database and the

@@ -13,8 +13,8 @@ inside, so there is no runtime to install.
 
 - **Device table** — name, IP, MAC, vendor, type, open ports and last seen, one row per
   device.
-- **Detail card** — LAN address (and the Tailscale address, when the Tailscale client can
-  verify it), MAC, vendor, model, TTL, open ports, services and first/last seen, plus a
+- **Detail card** — LAN address (and the mesh-VPN address, when a mesh VPN client on this PC
+  can verify it), MAC, vendor, model, TTL, open ports, services and first/last seen, plus a
   presence chart and the device's change log (`new device`, `joined`, `left`,
   `ip changed`).
 - **Activity feed** — the network-wide changes, shown when nothing is selected.

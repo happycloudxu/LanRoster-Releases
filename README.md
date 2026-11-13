@@ -134,7 +134,6 @@ notes](../../releases/latest) have the full list.
 ## Issues and support
 
 This repository has no issue tracker for the application source. Report problems to the
-author, [Dr. Haiping Xu](https://www.cis.umassd.edu/~hxu/), or through whoever supplied
-your copy of the build.
+author, Dr. Haiping Xu, or through whoever supplied your copy of the build.
 
 Scan only networks you are responsible for.

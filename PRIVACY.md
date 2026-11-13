@@ -30,8 +30,9 @@ of the app, and those devices can see it.
    URL that device advertised and reads its friendly name, model and manufacturer
    strings. That request goes only to the address the device itself supplied.
 4. **Optional hardware details, for one device, on your command.** Selecting a device and
-   asking for its CPU, RAM and GPU makes the app query that machine over Tailscale SSH
-   (which has to be enabled on it) or over WinRM with a username and password you type.
+   asking for its CPU, RAM and GPU makes the app query that machine over the SSH server a
+   mesh VPN client provides (it has to be enabled on that machine) or over WinRM with a
+   username and password you type.
    The password is handed to a local PowerShell process on stdin: it is not stored, not
    written to the log, and not sent anywhere except that device's own WinRM service. What
    comes back is shown in the detail card and held in memory for that session only; it is
@@ -80,7 +81,7 @@ once, so upgrade history carries over; the old copy is left untouched and never 
 
 Two more things happen entirely on your own machine: Windows CIM is asked for this PC's
 OS, CPU, RAM and GPU so the detail card can describe the computer you are sitting at, and
-the installed Tailscale client is asked for its local status so a device's tailnet address
+the installed mesh VPN client is asked for its local status so a device's mesh-VPN address
 can be shown. Neither sends anything out.
 
 ## What LanRoster never does

@@ -140,5 +140,5 @@ described in the release notes.
 
 ## Contact
 
-LanRoster is developed by **Dr. Haiping Xu** at <https://github.com/hxu-umassd>. Questions
+LanRoster is developed by **Dr. Haiping Xu** at <https://github.com/happycloudxu>. Questions
 and problem reports about the app, including privacy questions, can be sent there.

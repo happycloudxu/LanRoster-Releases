@@ -1,6 +1,6 @@
 # Privacy statement — LanRoster
 
-*Last updated: 11 November 2026 — version 0.4.1*
+*Last updated: 12 November 2026 — version 0.4.2*
 
 This statement covers every way you can get LanRoster: the Windows executable published in
 this repository and, when it is published there, the Microsoft Store package.
@@ -46,10 +46,11 @@ and never asks for, any account you may have anywhere.
 
 ## What LanRoster stores on your PC
 
-All of it stays on your machine, and none of it is transmitted. The portable build keeps
-it in the folder that holds `LanRoster.exe`; a Microsoft Store install cannot write to its
-program folder, so it keeps the same files, under the same names, in
-`%LOCALAPPDATA%\LanRoster` (usually `C:\Users\<you>\AppData\Local\LanRoster`).
+All of it stays on your machine, and none of it is transmitted. LanRoster keeps it in
+`%LOCALAPPDATA%\LanRoster` (usually `C:\Users\<you>\AppData\Local\LanRoster`) for every way
+you can get the app — the portable executable and the Microsoft Store package alike. The
+app never writes beside its own executable and never writes to its read-only program
+folder.
 
 | File | What | Why |
 |---|---|---|
@@ -57,21 +58,25 @@ program folder, so it keeps the same files, under the same names, in
 | `data-<machine>\oui.csv` | the IEEE vendor-prefix table, copied out of the app on first run | so a MAC address can be turned into a manufacturer |
 | `lanroster-<machine>.log` | scan start and finish, host counts and errors | so a failure can be diagnosed in a windowed build that has no console |
 
-`<machine>` is your computer name, so several copies of the app in one folder keep separate
-histories. In the portable build the data folder and the log sit beside the executable and
-nothing is written to your user profile; in the Store build they sit in
-`%LOCALAPPDATA%\LanRoster` and nothing is written to the read-only install folder. Neither
-build writes to the registry or to system folders, and nothing is uploaded.
+`<machine>` is your computer name, so several copies of the app on one PC keep separate
+histories. Neither build writes to the registry or to system folders, and nothing is
+uploaded.
 
-Quit the app and delete the `data-<machine>` folder and the log file to erase everything it
-knows. Uninstalling the portable build removes the executable and leaves those files alone;
-uninstalling the Store app removes the package, and Windows leaves
-`%LOCALAPPDATA%\LanRoster` in place, so delete that folder too if you want the history
-gone.
+If you would rather keep the data with a portable copy of the app than in your user
+profile, you can: drop an empty `portable.txt` file next to `LanRoster.exe`, or start the
+app with `--data-dir <path>`, or set the `LANROSTER_DATA_DIR` environment variable. The
+data folder and the log then sit in that folder and nothing is written to
+`%LOCALAPPDATA%`.
 
-A portable install and a Store install do not share history: the Store build starts with an
-empty inventory and never reads or deletes a `data-<machine>` folder left beside an old copy
-of the portable executable.
+Quit the app and delete the `data-<machine>` folder and the `lanroster-<machine>.log` file to
+erase everything it knows. Uninstalling the portable build removes the executable and leaves
+those files alone; uninstalling the Store app removes the package, and Windows leaves
+`%LOCALAPPDATA%\LanRoster` in place, so delete that folder too if you want the history gone.
+
+Because every install shares that one location, a portable copy and a Store install on the
+same PC see the same inventory instead of two separate ones. On its first run, 0.4.2 copies
+a `data-<machine>\lanroster.db` left beside an older executable into `%LOCALAPPDATA%\LanRoster`
+once, so upgrade history carries over; the old copy is left untouched and never read again.
 
 Two more things happen entirely on your own machine: Windows CIM is asked for this PC's
 OS, CPU, RAM and GPU so the detail card can describe the computer you are sitting at, and
@@ -123,9 +128,9 @@ data, not the app's, and it does not include what LanRoster found on your networ
 Because no personal data is collected or transmitted to the developer, there is nothing to
 access, correct, export or delete on the developer's side, and no request to file. To
 remove what the app has stored locally, quit it and delete the `data-<machine>` folder and
-the `lanroster-<machine>.log` file, which for the portable build are beside the executable
-and for the Store build are in `%LOCALAPPDATA%\LanRoster`. Devices on your network keep
-their own logs of the probes they received; those are theirs to manage.
+the `lanroster-<machine>.log` file, which are in `%LOCALAPPDATA%\LanRoster` unless you moved
+them yourself with `portable.txt`, `--data-dir` or `LANROSTER_DATA_DIR`. Devices on your
+network keep their own logs of the probes they received; those are theirs to manage.
 
 ## Changes
 

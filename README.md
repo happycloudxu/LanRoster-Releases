@@ -76,8 +76,8 @@ certutil -hashfile npcap-1.90.exe SHA256
 `npcap-1.90.exe` is Npcap's own installer, republished here unmodified so the download is
 easy to find; its checksum is Npcap's, not a build of ours.
 
-The same checksums are repeated in the notes for each release, so a download from any
-version can be verified against its own release page.
+The same checksums are repeated in the release notes, so a download can be verified against
+the page it came from.
 
 ## Where your data lives
 
@@ -121,8 +121,7 @@ activity feed, Help and the tray icon are unchanged. The
 an **Npcap and discovery quality** section: what the driver is, what degrades without it,
 numbered 1.90 install steps, licensing, and troubleshooting with `sc query npcap`. The amber
 discovery-capability chip now opens a scrollable dialog instead of a cramped message box, so
-the detected state and its fix can be read in full. Scanning behaviour is unchanged. The
-[release notes](../../releases/latest) have the full list.
+the detected state and its fix can be read in full. Scanning behaviour is unchanged.
 
 **0.4.2** stores writable state in `%LOCALAPPDATA%\LanRoster` for every install, portable or
 Store, with no packaging detection at all — this fixes the packaged 0.4.0 build crashing
@@ -132,18 +131,16 @@ executable: keep it there with an empty `portable.txt` next to `LanRoster.exe`, 
 migration copies an existing adjacent `data-<machine>\` database into the new location, so
 history survives the upgrade. Help/About now names the actual database file rather than its
 folder, and a saved window position that would land off-screen is pulled back onto a real
-monitor. The [release notes](../../releases/latest) have the full list.
+monitor.
 
 **0.4.1** was the Microsoft Store packaging release. The packaged build keeps its database,
 OUI cache and log in `%LOCALAPPDATA%\LanRoster` because the install folder is read-only;
-0.4.2 gives the portable build that same location. The [release
-notes](../../releases/latest) have the full list.
+0.4.2 gives the portable build that same location.
 
 **0.4.0** renamed the application from LanScope Desktop to LanRoster: `LanRoster.exe`, the
 `LANROSTER_*` environment variables, the `lanroster.db` database and the
 `lanroster-<machine>.log` log. An existing pre-0.4 database is adopted on first launch, so
-scan history carries over with no import step. The [release
-notes](../../releases/latest) have the full list.
+scan history carries over with no import step.
 
 ## Issues and support
 

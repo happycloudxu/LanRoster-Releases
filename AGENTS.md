@@ -14,6 +14,14 @@ GitHub renders a co-author trailer as "happycloudxu and Copilot" on the commit a
 that lists it, which is not wanted in these repositories. If a history is rewritten for any
 reason, strip such trailers, then force-push the branch together with any tags whose target moved.
 
+## Browser panels
+
+Do not open browser canvases inside the Copilot desktop app. The app restores panels a session
+opened, so one that was useful for a minute reappears on every reload and gets in the way. Use
+`gh api`, `gh repo view`, `git`, or a fetch tool to read a web page; if a page genuinely has to
+be seen, ask the user to open it. Do not navigate, reload, or otherwise drive an existing panel
+either.
+
 ## Repository
 
 | Item | Value |

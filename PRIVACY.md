@@ -69,14 +69,15 @@ data folder and the log then sit in that folder and nothing is written to
 `%LOCALAPPDATA%`.
 
 Quit the app and delete the `data-<machine>` folder and the `lanroster-<machine>.log` file to
-erase everything it knows. Removing a copy of the executable leaves those files alone;
-uninstalling the Store app removes the package, and Windows leaves
+erase everything it knows. Removing a copy of the executable leaves those files alone.
+Uninstalling the Store app removes the package, and Windows leaves
 `%LOCALAPPDATA%\LanRoster` in place, so delete that folder too if you want the history gone.
 
-Because every install shares that one location, a portable copy and a Store install on the
-same PC see the same inventory instead of two separate ones. On its first run, 0.4.2 copies
-a `data-<machine>\lanroster.db` left beside an older executable into `%LOCALAPPDATA%\LanRoster`
-once, so upgrade history carries over; the old copy is left untouched and never read again.
+Because every install shares that one location, the Store package and a copy run outside it
+on the same PC see the same inventory instead of two separate ones. On its first run, 0.4.2
+copies a `data-<machine>\lanroster.db` left beside an older executable into
+`%LOCALAPPDATA%\LanRoster` once, so upgrade history carries over; the old copy is left
+untouched and never read again.
 
 Two more things happen entirely on your own machine: Windows CIM is asked for this PC's
 OS, CPU, RAM and GPU so the detail card can describe the computer you are sitting at, and

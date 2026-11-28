@@ -1,9 +1,9 @@
 # Privacy statement — LanRoster
 
-*Last updated: 12 November 2026 — version 0.4.2*
+*Last updated: 27 November 2026 — version 0.4.4*
 
-This statement covers every way you can get LanRoster: the Windows executable published in
-this repository and, when it is published there, the Microsoft Store package.
+This statement covers LanRoster as published in the Microsoft Store, and a copy of the
+executable run outside the Store package.
 
 ## The short version
 
@@ -48,10 +48,9 @@ and never asks for, any account you may have anywhere.
 ## What LanRoster stores on your PC
 
 All of it stays on your machine, and none of it is transmitted. LanRoster keeps it in
-`%LOCALAPPDATA%\LanRoster` (usually `C:\Users\<you>\AppData\Local\LanRoster`) for every way
-you can get the app — the portable executable and the Microsoft Store package alike. The
-app never writes beside its own executable and never writes to its read-only program
-folder.
+`%LOCALAPPDATA%\LanRoster` (usually `C:\Users\<you>\AppData\Local\LanRoster`) however the app
+is run, packaged or not. The app never writes beside its own executable and never writes to
+its read-only program folder.
 
 | File | What | Why |
 |---|---|---|
@@ -60,7 +59,7 @@ folder.
 | `lanroster-<machine>.log` | scan start and finish, host counts and errors | so a failure can be diagnosed in a windowed build that has no console |
 
 `<machine>` is your computer name, so several copies of the app on one PC keep separate
-histories. Neither build writes to the registry or to system folders, and nothing is
+histories. The app writes nothing to the registry or to system folders, and nothing is
 uploaded.
 
 If you would rather keep the data with a portable copy of the app than in your user
@@ -70,8 +69,8 @@ data folder and the log then sit in that folder and nothing is written to
 `%LOCALAPPDATA%`.
 
 Quit the app and delete the `data-<machine>` folder and the `lanroster-<machine>.log` file to
-erase everything it knows. Uninstalling the portable build removes the executable and leaves
-those files alone; uninstalling the Store app removes the package, and Windows leaves
+erase everything it knows. Removing a copy of the executable leaves those files alone;
+uninstalling the Store app removes the package, and Windows leaves
 `%LOCALAPPDATA%\LanRoster` in place, so delete that folder too if you want the history gone.
 
 Because every install shares that one location, a portable copy and a Store install on the
@@ -116,7 +115,7 @@ The executable is built with **Python**, **PySide6 / Qt** (LGPL-3.0), **scapy** 
 **PyInstaller**, all bundled inside the app.
 
 **Npcap** is not bundled. It is an optional packet-capture driver with its own licence,
-installed separately from the download page or from <https://npcap.com>. Without it
+installed separately from <https://npcap.com>. Without it
 LanRoster falls back to reading the Windows ARP cache, so hosts and names still appear but
 MAC addresses are less reliable.
 
@@ -136,8 +135,7 @@ network keep their own logs of the probes they received; those are theirs to man
 ## Changes
 
 If a future version changes any of the above — for example by adding an optional update
-check — this statement will be updated before that version ships, and the change will be
-described in the release notes.
+check — this statement will be updated before that version ships.
 
 ## Contact
 
